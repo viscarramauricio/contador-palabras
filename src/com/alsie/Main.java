@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         String wordsFile = args.length > 0 ? args[0] : "words.txt";
-        Map<String, Long> wordCount = Arrays.asList( new String(
+        Arrays.asList( new String(
                 Files.readAllBytes(Paths.get(wordsFile))).replaceAll("[-+.^:,]]", "")
                 .split(" ")).stream()
                 .map(String::toLowerCase)
@@ -20,8 +20,7 @@ public class Main {
                 .sorted(Map.Entry.<String, Long>comparingByValue(Comparator.reverseOrder())
                         .thenComparing(Map.Entry.comparingByKey()))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
-                        (e1, e2) -> e2, LinkedHashMap::new));
-        System.out.println(wordCount);
+                        (e1, e2) -> e2, LinkedHashMap::new))
+                .entrySet().stream().forEach(e-> System.out.println(e));
     }
-
 }
