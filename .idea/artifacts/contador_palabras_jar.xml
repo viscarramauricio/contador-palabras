@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="contador-palabras:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/contador_palabras_jar</output-path>
+    <root id="archive" name="contador-palabras.jar">
+      <element id="module-output" name="contador-palabras" />
+    </root>
+  </artifact>
+</component>
